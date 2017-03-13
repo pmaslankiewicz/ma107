@@ -1,0 +1,85 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amssymb,amsmath,amsthm,color,tabularx}
+\usepackage{longtable,array,relsize}
+
+\newtheoremstyle{break}
+  {\topsep}{\topsep}%
+  {\itshape}{}%
+  {\bfseries}{}%
+  {\newline}{}%
+  
+\theoremstyle{break}
+\newtheorem*{problem}{Problem}
+
+\theoremstyle{break}
+\newtheorem*{solution}{Solution}
+
+\newtheorem*{definition}{Def}
+\newtheorem*{note}{Note}
+\newtheorem*{claim}{Claim}
+
+\begin{document}
+
+\title{MA-107 Summary}
+\date{}
+\maketitle
+
+\section{Supply and Demand}
+
+\section{Recurrence equations}
+Equations relating values of $y$ at discrete points in time, expressing value $y_{t}$ of $y$ at time $t$ as a function of $y_{t-1}$, one unit of time before time $t$.
+
+\subsection{Solving recurrence equations}
+Solving recurrence equation refers to finding value of $y_{t}$ as a function of ${t}$.
+			
+\begin{problem}
+Solve the recurrence equation \[y_{t} = ay_{t-1} + b\] for $t \geq 0$ given that $y_{0} = C$.
+\end{problem}
+
+\begin{solution}
+After making sure that the equation you're solving is in the form \[y_{t} = ay_{t-1} + b\] you proceed as follows:
+\begin{enumerate}
+\item If $a = 1$ your solution is $y_{t} = y_{0} + bt$. Otherwise:
+\item Make sure that your recurrence equation is of the form $y_{t} = ay_{t-1} + b$ for $a, b$ constants.
+\item Find $y^{\ast} = \dfrac{b}{1-a}$ where $a, b$ are constants from the equation above.
+\item Solution is $y(t) = y^{\ast} + (y_{0} - y^{\ast})a^{t}$
+\end{enumerate}
+\end{solution}
+
+\subsection{Long term behaviour}
+Describing behaviour of function $y_{t}$ as $t \rightarrow \infty$.
+
+\begin{problem}
+Given $ y_{t} = ay_{t-1} + b\ $ how does $y_{t}$ behave as $t$ tends to infinity?
+\end{problem}
+
+\begin{solution}
+Assume recurrence equation $y_{t} = ay_{t-1} + b$ and time independent solution $y^{\ast}$, long term behaviour of $y_{t}$ \textbf{depends on coefficient} $\mathbf{a}$:
+\begin{itemize}
+\item If $\mathbf{1 < a}$, then the function \textbf{increases unboundedly}($y_{t} \rightarrow +\infty$) if $y_{0} > y^{\ast}$ and the function \textbf{decreases unboundedly} $y_{t} \rightarrow -\infty$ $y_{0} < y^{\ast}$
+\item If $\mathbf{0 < a < 1}$, then the \textbf{function increases towards $y^{\ast}$}($y_{t} \rightarrow y^{\ast}$) if $y_{0} > y^{\ast}$ and the \textbf{function decreases towards $y^{\ast}$}($y_{t} \rightarrow y^{\ast}$) if $y_{0} < y^{\ast}$
+\item If $\mathbf{-1 < a < 0}$, then $y_{t}$ \textbf{oscillates towards $y^{\ast}$}.
+\item If $\mathbf{-1 < a < 0}$, then $y_{t}$ \textbf{oscillates unboundedly}.
+\end{itemize}
+\end{solution}
+
+\subsection{Investment schemes}
+Comparing return from different investments in terms of their present value.
+
+\begin{problem}
+Given access to a bank account with interest rate $r$ accrued annually at the end of each year and an asset with value function $V(t)$ calculate present value of selling said asset after $t$ years.
+\end{problem}
+
+\begin{solution}
+Present value $P(t)$ is given by the equation \[ P(t) = V(t)(1+r)^{-t} \]
+\end{solution}
+
+\begin{problem}
+Given access to a bank account with continuously compounded interest with rate $r$ and an asset with value function $V(t)$ calculate present value of selling said asset after $t$ years.
+\end{problem}
+
+\begin{solution}
+Present value $P(t)$ is given by the equation \[ P(t) = V(t)e^{-tr} \]
+\end{solution}
+
+\end{document}
