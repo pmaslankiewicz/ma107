@@ -1,6 +1,6 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt,a4paper, margin]{article}
 \usepackage{amssymb,amsmath,amsthm,color,tabularx}
-\usepackage{longtable,array,relsize}
+\usepackage{longtable,array}
 
 \newtheoremstyle{break}
   {\topsep}{\topsep}%
@@ -16,7 +16,6 @@
 
 \newtheorem*{definition}{Def}
 \newtheorem*{note}{Note}
-\newtheorem*{claim}{Claim}
 
 \begin{document}
 
@@ -39,10 +38,10 @@ Solve the recurrence equation \[y_{t} = ay_{t-1} + b\] for $t \geq 0$ given that
 \begin{solution}
 After making sure that the equation you're solving is in the form \[y_{t} = ay_{t-1} + b\] you proceed as follows:
 \begin{enumerate}
-\item If $a = 1$ your solution is $y_{t} = y_{0} + bt$. Otherwise:
-\item Make sure that your recurrence equation is of the form $y_{t} = ay_{t-1} + b$ for $a, b$ constants.
-\item Find $y^{\ast} = \dfrac{b}{1-a}$ where $a, b$ are constants from the equation above.
-\item Solution is $y(t) = y^{\ast} + (y_{0} - y^{\ast})a^{t}$
+	\item If $a = 1$ your solution is $y_{t} = y_{0} + bt$. Otherwise:
+	\item Make sure that your recurrence equation is of the form $y_{t} = ay_{t-1} + b$ for $a, b$ constants.
+	\item Find $y^{\ast} = \dfrac{b}{1-a}$ where $a, b$ are constants from the equation above.
+	\item Solution is $y(t) = y^{\ast} + (y_{0} - y^{\ast})a^{t}$
 \end{enumerate}
 \end{solution}
 
@@ -56,10 +55,10 @@ Given $ y_{t} = ay_{t-1} + b\ $ how does $y_{t}$ behave as $t$ tends to infinity
 \begin{solution}
 Assume recurrence equation $y_{t} = ay_{t-1} + b$ and time independent solution $y^{\ast}$, long term behaviour of $y_{t}$ \textbf{depends on coefficient} $\mathbf{a}$:
 \begin{itemize}
-\item If $\mathbf{1 < a}$, then the function \textbf{increases unboundedly}($y_{t} \rightarrow +\infty$) if $y_{0} > y^{\ast}$ and the function \textbf{decreases unboundedly} $y_{t} \rightarrow -\infty$ $y_{0} < y^{\ast}$
-\item If $\mathbf{0 < a < 1}$, then the \textbf{function increases towards $y^{\ast}$}($y_{t} \rightarrow y^{\ast}$) if $y_{0} > y^{\ast}$ and the \textbf{function decreases towards $y^{\ast}$}($y_{t} \rightarrow y^{\ast}$) if $y_{0} < y^{\ast}$
-\item If $\mathbf{-1 < a < 0}$, then $y_{t}$ \textbf{oscillates towards $y^{\ast}$}.
-\item If $\mathbf{-1 < a < 0}$, then $y_{t}$ \textbf{oscillates unboundedly}.
+	\item If $\mathbf{1 < a}$, then the function \textbf{increases unboundedly}($y_{t} \rightarrow +\infty$) if $y_{0} > y^{\ast}$ and the function \textbf{decreases unboundedly} $y_{t} \rightarrow -\infty$ $y_{0} < y^{\ast}$
+	\item If $\mathbf{0 < a < 1}$, then the \textbf{function increases towards $y^{\ast}$}($y_{t} \rightarrow y^{\ast}$) if $y_{0} > y^{\ast}$ and the \textbf{function decreases towards $y^{\ast}$}($y_{t} \rightarrow y^{\ast}$) if $y_{0} < y^{\ast}$
+	\item If $\mathbf{-1 < a < 0}$, then $y_{t}$ \textbf{oscillates towards $y^{\ast}$}.
+	\item If $\mathbf{-1 < a < 0}$, then $y_{t}$ \textbf{oscillates unboundedly}.
 \end{itemize}
 \end{solution}
 
@@ -81,5 +80,84 @@ Given access to a bank account with continuously compounded interest with rate $
 \begin{solution}
 Present value $P(t)$ is given by the equation \[ P(t) = V(t)e^{-tr} \]
 \end{solution}
+
+\section{Optimisation of functions in one variable}
+Identifying stationary points (minima and maxima) and economically significant values such as marginal cost, break-even point, starting point etc.
+
+\subsection{Differentiation}
+Mathematical theory allowing for economical analysis of function's behaviour.
+
+\begin{definition}[Lagrange's definition of a derivative]
+Define the derivative of a function $f(x)$ with respect to $x$ to be 
+\[f'(x) = lim_{h \rightarrow \infty} \dfrac{f(x+h) - f(x)}{h}\]
+\end{definition}
+
+Standard derivatives include:
+\begin{itemize}
+	\item $(e^x)'=e^x$
+	\item $(ln(x))'=\dfrac{1}{x}$ for $x > 0$
+	\item $(sin(x))'=cos(x)$
+	\item $(cos(x))'=-sin(x)$
+	\item $(x^n)'=nx^{n-1}$
+\end{itemize}
+
+\begin{definition}[Product rule]
+For a product of two functions $f$ and $g$ we have that:
+\[(f\cdot g)'=f'\cdot g + f\cdot g'\]
+\end{definition}
+
+\begin{definition}[Quotient rule]
+For a quotient of two functions $f$ and $g$ we have that:
+\[(\dfrac{f}{g})'=\dfrac{f'\cdot g + f\cdot g'}{g \cdot g}\]
+\end{definition}
+
+\begin{definition}[Chain rule]
+For a composition of two functions $f$ and $g$ we have that:
+\[(f \circ g)' = f'(g(x))g'(x)\]
+\end{definition}
+
+\begin{problem}
+Describe nature of all stationary points of a function $f(x)$.
+\end{problem}
+
+\begin{solution}
+\begin{enumerate}
+	\item Calculate first derivative $f'(x)$ of $f$.
+	\item Find all values of $x$ for which $f'(x)=0$. These are the \textbf{stationary points}.
+	\item Compute value of second derivative $f''(p)$ at every previously found stationary point $p$.
+	\begin{itemize}
+		\item If $f''(p) > 0$ then $p$ is a (local) minimum.
+		\item If $f''(p) < 0$ then $p$ is a (local) maximum.
+		\item If $f''(p) = 0$ then look at the sign of a $f'(x)$ for $x$ on both sides if $p$.
+		\begin{itemize}
+			\item If $f'(x)$ changes sign from + to - at $p$ then we have a (local) maximum.
+			\item If $f'(x)$ changes sign from - to + at $p$ then we have a (local) minimum.
+			\item If sign of $f'(x)$ does not change sign at $p$ then $p$ is an inflection point (neither min nor max).
+		\end{itemize}
+	\end{itemize}
+\end{enumerate}
+\end{solution}
+
+\subsection{Cost related optimisation}
+
+\begin{definition} [Profit function]
+Define \textbf{profit} $\Pi$ of a firm as a function of produced quantity $q$ to be:
+\[\Pi(q) = pq - C(q)\]
+where for a \textbf{small, efficient firm} we treat $p$ as a constant since the amount it produces does not affect market price.\\\\
+Define indirect profit $\Pi^\ast$ of a firm to be a profit function $\Pi$ evaluated at its stationary point $q^\ast$ ie $\Pi^\ast = pq^\ast - C(q^\ast)$. 
+\end{definition}
+
+\begin{definition} [Start-up and break-even points]
+
+Given a supplier firm with cost and profit functions $C(q), \Pi(q)$ define:
+
+\begin{itemize}
+	\item \textbf{start-up point} $q_s$ to be the largest quantity $q$ produced that will bring the same profit as producing nothing. \\It can be found as a solution to:
+\[\Pi(q_s) = \Pi(0)\]
+	\item \textbf{start-up point} $q_b$ to be the smallest quantity $q$ produced that will cover the cost of production. \\It can be found as a solution to:
+\[\Pi(q_b) = 0\]
+\end{itemize} 
+
+\end{definition}
 
 \end{document}
