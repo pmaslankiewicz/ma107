@@ -81,6 +81,42 @@ Given access to a bank account with continuously compounded interest with rate $
 Present value $P(t)$ is given by the equation \[ P(t) = V(t)e^{-tr} \]
 \end{solution}
 
+\begin{problem}
+Given access to a bank account with annually compounded interest with rate $r$ calculate present value of:
+\begin{enumerate}
+	\item Receiving a sum $M$ after $n$ years.
+	\item Receiving a yearly salary of $S$ for $n$ years.
+	\item Selling an asset with value function $V(t)$ after $n$ years. 
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+Present value $P$ is given by the equation:
+\begin{enumerate}
+	\item $P(n) = M(1+r)^{-n}$
+	\item $P(n) = S(r - \dfrac{r}{(1+r)^{n}})$
+	\item $P(n) = V(n)(1+r)^{-n}$
+\end{enumerate}
+\end{solution}
+
+\begin{problem}
+Given access to a bank account with continuously compounded interest with rate $r$ calculate present value of:
+\begin{enumerate}
+	\item Receiving a sum $M$ after time $t$.
+	\item Receiving a yearly salary of $S$ for $n$ years.
+	\item Selling an asset with value function $V(t)$ after time $t$. 
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+Present value $P$ is given by the equation:
+\begin{enumerate}
+	\item $P(t) = Me^{-rt}$
+	\item $P(n) = S(\dfrac{e^{rn}-1}{e^{rn}(e^r-1)})$
+	\item $P(t) = V(t)e^{-tr}$
+\end{enumerate}
+\end{solution}
+
 \section{Optimisation of functions in one variable}
 Identifying stationary points (minima and maxima) and economically significant values such as marginal cost, break-even point, starting point etc.
 
@@ -144,7 +180,7 @@ Describe nature of all stationary points of a function $f(x)$.
 Define \textbf{profit} $\Pi$ of a firm as a function of produced quantity $q$ to be:
 \[\Pi(q) = pq - C(q)\]
 where for a \textbf{small, efficient firm} we treat $p$ as a constant since the amount it produces does not affect market price.\\\\
-Define indirect profit $\Pi^\ast$ of a firm to be a profit function $\Pi$ evaluated at its stationary point $q^\ast$ ie $\Pi^\ast = pq^\ast - C(q^\ast)$. 
+Define indirect profit $\Pi^\ast$ of a firm to be a profit function $\Pi$ evaluated at its stationary point $q^\ast$ ie $\Pi^\ast(q) = pq^\ast - C(q^\ast)$. 
 \end{definition}
 
 \begin{definition} [Start-up and break-even points]
@@ -157,7 +193,24 @@ Given a supplier firm with cost and profit functions $C(q), \Pi(q)$ define:
 	\item \textbf{break-even point} $q_b$ to be the smallest quantity $q$ produced that will cover the cost of production. \\It can be found as a solution to:
 \[\Pi(q_b) = 0\]
 \end{itemize} 
-
 \end{definition}
+
+\begin{problem} [Small firm]
+Given a small efficient firm with cost function C(q):
+\begin{itemize}
+	\item Write the profit and find a value of selling price $p$ of the its product that maximises the profit for $q>0$.
+	\item Find its start-up point $q_0$ and break-even point $q_b$. 
+\end{itemize}
+\end{problem}
+
+\begin{solution} [Standard small firm procedure]
+\begin{enumerate}
+	\item Write profit function $\Pi(q)$ as defined above.
+	\item Differentiate $\Pi(q)$ to show that it has a stationary point when $p = C'(q)$.
+	\item Verify that it is a max by finding $\Pi''(q)$ for $p = C'(q)$.
+	\item Find $q_0$ by solving $\Pi^\ast(q_0) = \Pi(0)$
+	\item Find $q_b$ by solving $\Pi^\ast(q_b) = 0$
+\end{enumerate}
+\end{solution}
 
 \end{document}
