@@ -213,4 +213,42 @@ Given a small efficient firm with cost function C(q):
 \end{enumerate}
 \end{solution}
 
+\section{Optimisation of functions in two variables}
+
+\subsection{Differentiation}
+Before when we had a function is one variable $f(x)$ we could write $f'(x)$ as its derivative with respect to $x$, namely $\dfrac{df(x)}{dx}$ or simply $\dfrac{df}{dx}$.\\ \\
+With $f(x,y)$ being a function in two variables notation $f'(x,y)$ doesn't make much sense any more. So we define first order partial derivatives with respect to $x$ and $y$ to be \[f_x = \dfrac{\partial f}{\partial x} \quad \textrm{and} \quad f_y = \dfrac{\partial f}{\partial y} \quad \textrm{respectively}\] 
+And second order derivatives are:
+\[ f_{xx} = \dfrac{\partial^2f}{\partial x^2}, \quad f_{yy} = \dfrac{\partial^2f}{\partial y^2}, \quad f_{xy} = \dfrac{\partial^2f}{\partial x \partial y}, \quad f_{yx} = \dfrac{\partial^2f}{\partial y \partial x} \]
+
+\begin{definition} [Chain rule]
+Given function in two variables $F(x,y)$ and given that $x$ and $y$ are in turn functions of another variable $t$ we can define $f(t) = F(x(t), y(t))$ and get its derivative with respect to $t$ from chain rule as follows:
+\[\dfrac{df}{dt} = \dfrac{\partial F}{\partial x}\dfrac{\partial x}{\partial t} + \dfrac{\partial F}{\partial y}\dfrac{\partial y}{\partial t}\] 
+\end{definition}
+
+\begin{problem}[Implicit differentiation]
+Suppose we have a function $G(x,y)$ and that $y$ depends on $x$ and is being defined implicitly by $G(x,y) = C$. Find derivative of $y$ w.r.t. $x$ ie $\dfrac{dy}{dx}$
+\end{problem}
+
+\begin{solution}
+Define $g(x) = G(x, y(x))$. From chain rule above we have that: \[\dfrac{dg}{dx} = \dfrac{\partial G}{\partial x} \dfrac{dx}{dx} + \dfrac{\partial G}{\partial y}\dfrac{dy}{dx}\]
+
+From the implicit equation $G(x,y) = C$ we have that \[\dfrac{dg}{dx} = \dfrac{\partial G}{\partial x} = \dfrac{\partial C}{\partial x} = 0\]
+
+Putting the two equations together we have that \[\dfrac{dg}{dx} = \dfrac{\partial G}{\partial x} \dfrac{dx}{dx} + \dfrac{\partial G}{\partial y}\dfrac{dy}{dx} = 0\]
+
+Which after rearranging gives us: \[\dfrac{dy}{dx} = - \dfrac{\frac{\partial G}{\partial x}}{\frac{\partial G}{\partial y}} = - \dfrac{G_x}{G_y}\]
+
+$G_x$ and $G_y$ can be easily computed by differentiating G w.r.t. $x$ and $y$
+\end{solution}
+
+\begin{definition}[Homogeneous function]
+We say that a function $f(x,y)$ is homogeneous of degree $r$ if for any $\lambda$ we have: \[f(\lambda x, \lambda y) = \lambda^r f(x,y)\]
+\end{definition}
+
+\begin{definition} [Euler's theorem]
+If $f(x,y)$ is homogeneous of degree $r$ then we have that:
+\[x\dfrac{\partial f}{\partial x} + y\dfrac{\partial f}{\partial y} = rf(x,y)\]
+\end{definition}
+
 \end{document}
